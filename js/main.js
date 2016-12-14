@@ -9,29 +9,29 @@ var lives;
 //audio
 var audio = document.createElement('audio');
 var source = document.createElement('source');
-source.src = "sounds/jump2.wav"
+source.src = "sounds/jump2.wav";
 audio.appendChild(source);
 
 var audio2 = document.createElement('audio');
 var source2 = document.createElement('source');
-source2.src = "sounds/victory.mp3"
+source2.src = "sounds/victory.mp3";
 audio2.appendChild(source2);
 
 var splat = document.createElement('audio');
 var splatSource = document.createElement('source');
-splatSource.src = "sounds/splat1.mp3"
+splatSource.src = "sounds/splat1.mp3";
 splat.appendChild(splatSource);
 
 var background = document.createElement('audio');
 var backgroundSource = document.createElement('source');
-backgroundSource.src = "sounds/background.wav"
+backgroundSource.src = "sounds/background.wav";
 background.loop = true;
 background.appendChild(backgroundSource);
 background.play();
 
 var waterSplash = document.createElement('audio');
 var waterSplashSource = document.createElement('source');
-waterSplashSource.src = "sounds/watersplash.WAV"
+waterSplashSource.src = "sounds/watersplash.WAV";
 waterSplash.appendChild(waterSplashSource);
 
 
@@ -258,7 +258,6 @@ function setUpEnvironment() {
     setUpLogs();
     setUpCars();
 
-    //render();
 }
 
 function setUpTrees() {
@@ -307,54 +306,45 @@ function setUpLogs()
     cylinder.rotation.z = Math.PI / 2;
     cylinder.castShadow = true;
     cylinder.receiveShadow = true;
-    //logs.push(cylinder);
     scene.add(cylinder);
 
 
     row3cy2 = cylinder.clone();
     row3cy2.position.x = 4;
-    //logs.push(row3cy2);
     scene.add(row3cy2);
 
     row3cy3 = cylinder.clone();
     row3cy3.position.x = -4;
-    //logs.push(row3cy3);
     scene.add(row3cy3);
 
     //first row
     row1cy1 = cylinder.clone();
     row1cy1.position.x = 5.5;
     row1cy1.position.z = 1;
-    //logs.push(row1cy1);
     scene.add(row1cy1);
 
     row1cy2 = row1cy1.clone();
     row1cy2.position.x = 2;
-    //logs.push(row1cy2);
     scene.add(row1cy2);
 
     row1cy3 = row1cy1.clone();
     row1cy3.position.x = -1.5;
-    //logs.push(row1cy3);
     scene.add(row1cy3);
 
     //second row
     row2cy1 = cylinder.clone();
     row2cy1.position.z = 2;
     row2cy1.position.x = -3;
-    //logs.push(row2cy1);
     scene.add(row2cy1);
 
     row2cy2 = row2cy1.clone();
     row2cy2.position.x = 3;
-    //logs.push(row2cy2);
     scene.add(row2cy2);
 
     //fourth row
     row4cy1 = row2cy1.clone();
     row4cy1.position.z = 4;
     row4cy1.position.x = 1.5;
-    //logs.push(row4cy1);
     scene.add(row4cy1);
 
     logs.push(row1cy1);
@@ -504,8 +494,6 @@ function moveWithLogs() {
 
 }
 
-
-
 function animateCars() {
     for(var i =0; i <cars.length;i++){
         if( i >= 0 && i <=2){
@@ -543,9 +531,11 @@ function render() {
     animateLogs();
     carCollisionDetect();
     moveWithLogs();
+
     if (flag) {
         frog.position.x += logSpeed[logZ - 1];
     }
+
     //offset frog position
     currentPos = frog.position.z + 5;
     if (score < currentPos)
