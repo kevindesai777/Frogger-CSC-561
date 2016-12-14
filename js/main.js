@@ -3,9 +3,6 @@
 var scene, camera, renderer, controls, frog, light, ambLight;
 var div = document.querySelector("#game");
 
-var level;
-var lives;
-
 //audio
 var audio = document.createElement('audio');
 var source = document.createElement('source');
@@ -115,7 +112,10 @@ function keyUp(e)
             frog.position.set(0, -0.5, -5);
             break;
         case ESC:
-            background.pause();
+            if(background.paused == true)
+                background.play();
+            else
+                background.pause();
     }
 
 
@@ -132,7 +132,7 @@ function init(){
 
     //renderer setup
     renderer = new THREE.WebGLRenderer({
-        alpha: true, antialias: true
+        alpha: true, antialias: true, preserveDrawingBuffer: true
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
 
